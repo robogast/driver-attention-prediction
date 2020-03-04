@@ -1,4 +1,11 @@
+#!/bin/bash
+
 set -e
+
+# Get script dir
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+cd $DIR
 
 python parse_videos.py \
 --video_dir=data/training/camera_videos \
