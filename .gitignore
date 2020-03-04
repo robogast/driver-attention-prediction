@@ -11,3 +11,9 @@ data/application/camera_images/*
 data/*.pickle
 *.RData
 .Rhistory
+
+# Added by Robert Jan
+camera_images/*
+camera_videos/*
+gazemap_videos/*
+gps_jsons/*
