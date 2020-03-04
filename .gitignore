@@ -13,14 +13,7 @@ data/*.pickle
 .Rhistory
 
 # Added by Robert Jan
-<<<<<<< HEAD
 camera_images/
 camera_videos/
 gazemap_videos/
 gps_jsons/
-=======
-camera_images/*
-camera_videos/*
-gazemap_videos/*
-gps_jsons/*
->>>>>>> 4ff01dc841055517589da346423e3d81b9958322
