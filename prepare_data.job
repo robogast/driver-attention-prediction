@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#SBATCH --job-name=prepare_data
+#SBATCH -N 1
+#SBATCH -t 5:00
+
+module load 2019
+module load Miniconda2
+
+source activate test-bdda
+
+./prepare_data.sh
