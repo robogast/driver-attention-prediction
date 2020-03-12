@@ -5,7 +5,7 @@ set -e
 # Get script dir
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-cp -r $DIR/data $TMP
+cp -r $DIR/data $TMP/data
 
 OUTPATH="logs/retrained_base_model"
 
