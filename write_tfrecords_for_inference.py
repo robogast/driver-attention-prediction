@@ -51,6 +51,9 @@ for i in range(len(splits)):
             feature_map_features = list()
             gazemap_features = list()
             gaze_ps_features = list()
+            if not len(seq):
+                print(f"ERROR: {seq}")
+                continue
             video_id = int(seq[0].split('_')[0])
             predicted_time_point_features = list()
             weight_features = list()
