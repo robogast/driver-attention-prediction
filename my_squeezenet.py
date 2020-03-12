@@ -5,7 +5,7 @@ Created on Sun Sep 10 01:59:34 2017
 @author: pasca
 """
 
-from keras.applications.imagenet_utils import _obtain_input_shape
+from keras_applications.imagenet_utils import _obtain_input_shape
 from keras import backend as K
 from keras.layers import Input, Convolution2D, MaxPooling2D, Activation, concatenate, Dropout, GlobalAveragePooling2D, \
     warnings

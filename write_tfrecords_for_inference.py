@@ -42,7 +42,7 @@ for i in range(len(data_point_names)):
     splits[i%args.n_divides].append(data_point_names[i])
 
 for i in range(len(splits)):
-    with tf.python_io.TFRecordWriter(
+    with tf.io.TFRecordWriter(
         os.path.join(tfrecord_folder, 
         "cameras_%d.tfrecords" % i )) as writer:    
         

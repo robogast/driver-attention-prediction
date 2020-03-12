@@ -55,7 +55,7 @@ if args.weight_data:
     
 
 for i in range(len(splits)):
-    with tf.python_io.TFRecordWriter(
+    with tf.io.TFRecordWriter(
         os.path.join(tfrecord_folder, 
         "cameras_gazes_%s_features_%dfuture_%d.tfrecords" \
           % (args.feature_name, args.n_future_steps, i) )) as writer:
