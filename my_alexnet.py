@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 
 
-net_data = np.load(open("bvlc_alexnet.npy", "rb"), encoding="latin1").item()
+net_data = np.load(open("bvlc_alexnet.npy", "rb"), encoding="latin1", allow_pickle=True).item()
 
 def conv(input, kernel, biases, k_h, k_w, c_o, s_h, s_w,  padding="VALID", group=1):
     '''From https://github.com/ethereon/caffe-tensorflow
