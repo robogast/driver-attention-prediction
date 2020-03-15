@@ -1,9 +1,8 @@
 #!/bin/bash
 
-#SBATCH --job-name=prepare_data
-#SBATCH -n 1
-#SBATCH -p gpu_shared
-#SBATCH -t 05:00:00
+#SBATCH --job-name=setup
+#SBATCH -N 1
+#SBATCH -t 10:00:00
 
 module load 2019
 module load Miniconda2
