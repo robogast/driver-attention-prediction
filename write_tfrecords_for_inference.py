@@ -41,12 +41,19 @@ splits = [[] for _ in range(args.n_divides)]
 for i in range(len(data_point_names)):
     splits[i%args.n_divides].append(data_point_names[i])
 
+for i in reversed(range(len(splits))):
+    if not len(splits[i]):
+        del splits[i]
+
 for i in range(len(splits)):
     with tf.io.TFRecordWriter(
         os.path.join(tfrecord_folder, 
         "cameras_%d.tfrecords" % i )) as writer:    
         
         for seq in tqdm(splits[i]):
+            if not seq:
+                print(f"Error in inference: {seq}:{i}")
+                continue
             camera_features = list()
             feature_map_features = list()
             gazemap_features = list()

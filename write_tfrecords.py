@@ -47,6 +47,10 @@ splits = [[] for _ in range(args.n_divides)]
 for i in range(len(data_point_names)):
     splits[i%args.n_divides].append(data_point_names[i])
     
+# Please let this fix my issues
+for i in reversed(range(len(splits))):
+    if not len(splits[i]):
+        del splits[i]
     
 # get data weights
 if args.weight_data:
@@ -62,6 +66,9 @@ for i in range(len(splits)):
         
         
         for seq in tqdm(splits[i]):
+            if not seq:     
+                print("Error in train: {seq}:{i}")  
+                continue
             camera_features = list()
             feature_map_features = list()
             gazemap_features = list()
@@ -94,7 +101,8 @@ for i in range(len(splits)):
                 try:
                   gazemap = cv2.imread(os.path.join(gazemap_folder, 
                     seq[j+args.n_future_steps]+'.jpg'))[:,:,0]
-                except FileNotFoundError:
+                except (FileNotFoundError, TypeError):
+                  # Good intentions, but cv2.imread doesn't raise FileNotFoundError
                   print('No gaze map for %s' % seq[j+args.n_future_steps])
                   camera_features.pop()
                   continue
