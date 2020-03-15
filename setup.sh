@@ -11,9 +11,7 @@ echo "Please download BDDA.zip manually and place in root folder"
 
 mkdir "$TMPDATADIR"
 cp $DIR/BDDA.zip "$TMPDATADIR"
-unzip "$TMPDATADIR"/BDDA.zip '*' -d "$TMPDATADIR" # unzip subfolders into $TMPDATADIR
-
-ls "$TMPDATADIR" # for debugging purposes
+bsdtar --strip-components=1 -xvf "$TMPDATADIR"/BDDA.zip -C "$TMPDATADIR" # unzip subfolders into $TMPDATADIR
 
 # Get models
 models_zip="pretrained_models.zip"
