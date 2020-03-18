@@ -20,7 +20,7 @@ mkdir "$DATADIR"
 
 OUTDIR="/project/robertjs"
 
-./setup.py --data-dir "$DATADIR" --bdda-dir "$BDDADIR" --model-dir $MODELDIR
+./setup.py --data-dir "$DATADIR" --bdda-path "$BDDADIR" --model-dir $MODELDIR
 ./prepare_data.py --data-dir "$DATADIR" --model-dir "$MODELDIR"
 
 cp -r "$DATADIR" "$OUTDIR"
