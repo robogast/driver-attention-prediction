@@ -24,6 +24,7 @@ def call_write_tfrecords_for_inference(data_dir):
     
     subprocess.run((
         'python write_tfrecords_for_inference.py'
+        f' --data_dir {data_dir}'
         f' --n_divides {n_divides}'
         f' --longest_seq {longest_seq}'
     ).split(), check=True)
