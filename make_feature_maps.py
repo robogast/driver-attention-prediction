@@ -148,6 +148,8 @@ def main(argv):
             ckpt_name = [f.split('.index')[0] for f in os.listdir(best_ckpt_dir) if f.endswith('.index')][0]
             ckpt_path = os.path.join(best_ckpt_dir, ckpt_name)
             args.model_iteration = ckpt_name.split('-')[1]
+        else:
+            ckpt_path = None
     else:
         ckpt_name = 'model.ckpt-'+args.model_iteration
         ckpt_path = os.path.join(args.model_dir, ckpt_name)    
