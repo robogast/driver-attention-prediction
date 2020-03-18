@@ -4,10 +4,23 @@
 #SBATCH -N 1
 #SBATCH -t 10:00:00
 
+set -e
+
 module load 2019
 module load Miniconda2
 module load imkl
 
 source activate test-bdda
 
-./setup.sh
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+MODELDIR="$SCRIPTDIR"
+BDDADIR="$SCRIPTDIR"
+DATADIR="$TMPDIR"/data
+mkdir "$DATADIR"
+
+OUTDIR="/project/robertjs"
+
+./setup.py --datadir "$DATADIR" --bddadir "$BDDADIR" --modeldir $MODELDIR
+./prepare_data.py --datadir "$DATADIR" 
+
+cp -r "$DATADIR" "$OUTDIR"
