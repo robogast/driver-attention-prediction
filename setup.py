@@ -19,8 +19,8 @@ def get_pretrained_models(model_dir):
     subprocess.run((
         'wget -nc'
         f' --directory-prefix={model_dir}'
-        f' --no-check-certificate {model_zip_url}'
         f' -O {models_zip_name}'
+        f' --no-check-certificate {model_zip_url}'
     ).split())
 
     subprocess.run((
