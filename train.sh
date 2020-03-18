@@ -2,16 +2,15 @@
 
 set -e
 
-# Get script dir
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DATADIR="$TMPDIR"/data
+INPATH="/project/robertjs/data"
+OUTPATH="./logs/retrained_base_model"
 
-cp -r "$DIR/data" "$TMPDIR"
-
-OUTPATH="logs/retrained_base_model"
+cp -r "$INPATH" "$DATADIR"
 
 python train.py \
---data_dir="$TMPDIR/data" \
---model_dir="$TMPDIR/$OUTPATH" \
+--data_dir="$DATADIR" \
+--model_dir="$OUTPATH" \
 --batch_size=10 \
 --n_steps=6 \
 --feature_name=alexnet \
@@ -21,5 +20,3 @@ python train.py \
 --feature_map_channels=256 \
 --quick_summary_period=20 \
 --slow_summary_period=100
-
-cp -r "$TMPDIR/$OUTPATH" "$DIR/$OUTPATH"
