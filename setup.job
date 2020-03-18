@@ -14,13 +14,13 @@ source activate test-bdda
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 MODELDIR="$SCRIPTDIR"
-BDDADIR="$SCRIPTDIR"
+BDDAPATH="$SCRIPTDIR"/BDDA.zip
 DATADIR="$TMPDIR"/data
 mkdir "$DATADIR"
 
 OUTDIR="/project/robertjs"
 
-./setup.py --data-dir "$DATADIR" --bdda-path "$BDDADIR" --model-dir $MODELDIR
+./setup.py --data-dir "$DATADIR" --bdda-path "$BDDAPATH" --model-dir $MODELDIR
 ./prepare_data.py --data-dir "$DATADIR" --model-dir "$MODELDIR"
 
 cp -r "$DATADIR" "$OUTDIR"
