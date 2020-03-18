@@ -16,7 +16,6 @@ def get_pretrained_models(model_dir):
     models_zip_name = "pretrained_models.zip"
     model_zip_url = 'https://docs.google.com/uc?export=download&id=1q_CgyX73wrYTAsZjDF9aMXNPURcUmWVy'
 
-    breakpoint()
     subprocess.run((
         'wget -nc'
         f' --directory-prefix={model_dir}'
