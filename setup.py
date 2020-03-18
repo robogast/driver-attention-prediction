@@ -21,7 +21,7 @@ def get_pretrained_models(model_dir):
         f' --directory-prefix={model_dir}'
         f' --no-check-certificate {model_zip_url}'
         f' -O {models_zip_name}'
-    ).split(), check=True)
+    ).split())
 
     subprocess.run((
         'unzip -u'
