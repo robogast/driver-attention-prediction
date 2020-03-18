@@ -12,7 +12,7 @@ module load imkl
 
 source activate test-bdda
 
-SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+SCRIPTDIR="~/Code/master-thesis/reproducability/driver-attention-prediction"
 MODELDIR="$SCRIPTDIR"
 BDDAPATH="$SCRIPTDIR"/BDDA.zip
 DATADIR="$TMPDIR"/data
