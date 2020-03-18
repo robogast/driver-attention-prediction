@@ -26,7 +26,7 @@ def get_pretrained_models(model_dir):
     subprocess.run((
         'unzip -u'
         f' {model_dir / models_zip_name}'
-        f' -d {model_dir / models_zip_name}'
+        f' -d {model_dir}'
     ).split(), check=True)
 
     subprocess.run((
