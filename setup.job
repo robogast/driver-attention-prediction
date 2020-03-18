@@ -12,7 +12,7 @@ module load imkl
 
 source activate test-bdda
 
-SCRIPTDIR="~/Code/master-thesis/reproducability/driver-attention-prediction"
+SCRIPTDIR="/home/robertjs/Code/master-thesis/reproducability/driver-attention-prediction"
 MODELDIR="$SCRIPTDIR"
 BDDAPATH="$SCRIPTDIR"/BDDA.zip
 DATADIR="$TMPDIR"/data
