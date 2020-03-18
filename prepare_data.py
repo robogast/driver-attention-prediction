@@ -74,17 +74,14 @@ def main(data_dir, subfolders, subcategories, model_dir):
 if __name__ == '__main__':
     current_path = Path(__file__).parent
     parser = ArgumentParser(description='prepare data for predicting driver attention training code')
-    parser.add_argument('-d', '--datadir', type=Path, default=(current_path / 'data'))
-    parser.add_argument('-m', '--modeldir', type=Path, default=(current_path / 'pretrained_models'))
+    parser.add_argument('-d', '--data-dir', type=Path, default=(current_path / 'data'))
+    parser.add_argument('-m', '--model-dir', type=Path, default=(current_path / 'pretrained_models'))
     parser.add_argument('--subfolders', nargs='+', default=['training', 'validation'])
     parser.add_argument('--subcategories', nargs='+', default=['camera', 'gazemap'],
                         help='a category folder should end with `_videos`, e.g.: `camera_videos`')
     args = parser.parse_args()
 
-    main(
-        data_dir=args.datadir, subfolders=args.subfolders,
-        subcategories=args.subcategories, model_dir=args.modeldir
-    )
+    main(**vars(args))
 
 
 # Get script dir
