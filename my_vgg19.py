@@ -11,6 +11,7 @@ from __future__ import absolute_import
 
 import warnings
 
+import keras
 from keras.models import Model
 from keras.layers import Flatten
 from keras.layers import Dense
@@ -25,7 +26,7 @@ from keras.utils.data_utils import get_file
 import keras.backend as K
 from keras.applications.imagenet_utils import decode_predictions
 from keras.applications.imagenet_utils import preprocess_input
-from keras_applications.imagenet_utils import _obtain_input_shape
+from keras.applications.imagenet_utils import _obtain_input_shape
 from keras.layers import Activation
 
 

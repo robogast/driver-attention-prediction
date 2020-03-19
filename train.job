@@ -2,12 +2,12 @@
 
 #SBATCH --job-name=train_basemodel
 #SBATCH -p gpu_shared
-#SBATCH -n 8
+#SBATCH -n 4
 #SBATCH -t 10:00:00
 
 module load 2019
 module load Miniconda2
 
-source activate test-bdda
+source activate test-bdda2
 
 ./train.sh
