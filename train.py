@@ -28,7 +28,7 @@ def model_fn(features, labels, mode, params):
 
   labels = tf.reshape(labels, (-1, params['gazemap_size'][0]*params['gazemap_size'][1]))
   
-  video_id = features['video_id']
+  # video_id = features['video_id']
   predicted_time_points = features['predicted_time_points']
   
   # build up model
@@ -144,7 +144,7 @@ def input_fn(dataset, batch_size, n_steps, shuffle, include_labels, n_epochs, ar
     context_feature_info = {
       'cameras': tf.VarLenFeature(dtype=tf.string),
       'gazemaps': tf.VarLenFeature(dtype=tf.string),
-      'video_id': tf.FixedLenFeature(shape=[], dtype=tf.int64)
+      # 'video_id': tf.FixedLenFeature(shape=[], dtype=tf.int64)
     }
     sequence_feature_info = {
       'feature_maps': tf.FixedLenSequenceFeature(shape=[], dtype=tf.string),
@@ -158,18 +158,13 @@ def input_fn(dataset, batch_size, n_steps, shuffle, include_labels, n_epochs, ar
     
     cameras = tf.sparse_tensor_to_dense(context_features["cameras"], default_value='')
     gazemaps = tf.sparse_tensor_to_dense(context_features["gazemaps"], default_value='')
-    video_id = context_features['video_id']
+    # video_id = context_features['video_id']
     
     feature_maps = tf.reshape(tf.decode_raw(sequence_features["feature_maps"], tf.float32), 
       [-1,]+args.feature_map_size+[args.feature_map_channels])
     predicted_time_points = sequence_features["predicted_time_points"]
     weights = sequence_features['weights']
-    
 
-    print("cameras: {}".format(cameras))
-    print("gazemaps: {}".format(gazemaps))
-    print("video_id: {}".format(video_id))
-    print("feature_maps: {}".format(feature_maps))
     
     if include_labels:
       labels = tf.reshape(tf.decode_raw(sequence_features["gaze_ps"], tf.float32), 
@@ -215,7 +210,7 @@ def input_fn(dataset, batch_size, n_steps, shuffle, include_labels, n_epochs, ar
     features['cameras'] = cameras
     features['feature_maps'] = feature_maps
     features['gazemaps'] = gazemaps
-    features['video_id'] = video_id
+    # features['video_id'] = video_id
     features['predicted_time_points'] = predicted_time_points
     features['weights'] = weights
     
@@ -229,7 +224,7 @@ def input_fn(dataset, batch_size, n_steps, shuffle, include_labels, n_epochs, ar
   padded_shapes = {'cameras': [None,]+args.image_size+[3],
                    'feature_maps': [None,]+args.feature_map_size+[args.feature_map_channels],
                    'gazemaps': [None,]+args.image_size+[1],
-                   'video_id': [],
+                  #  'video_id': [],
                    'predicted_time_points': [None,],
                    'weights': [None,]}
                    
