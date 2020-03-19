@@ -165,6 +165,11 @@ def input_fn(dataset, batch_size, n_steps, shuffle, include_labels, n_epochs, ar
     predicted_time_points = sequence_features["predicted_time_points"]
     weights = sequence_features['weights']
     
+
+    print("cameras: {}".format(cameras))
+    print("gazemaps: {}".format(gazemaps))
+    print("video_id: {}".format(video_id))
+    print("feature_maps: {}".format(feature_maps))
     
     if include_labels:
       labels = tf.reshape(tf.decode_raw(sequence_features["gaze_ps"], tf.float32), 
